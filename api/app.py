@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_mail import Mail, Message
+from flask_cors import CORS
 import os
 
 app = Flask(__name__)
+
+CORS(app, resources={r"/*": {"origins": "https://www.saygon.tech", "methods": ["POST"]}})
 
 # Configuração do Flask-Mail
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
