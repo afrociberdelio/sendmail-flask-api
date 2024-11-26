@@ -14,6 +14,11 @@ app.config['MAIL_PASSWORD'] = os.getenv('pass_email')
 mail = Mail(app)
 
 
+@app.route('/', methods=['GET'])
+def home():
+    return '<h3>Its working<h3>', 200
+
+
 @app.route('/send-email', methods=['POST'])
 def send_email():
     data = request.json
